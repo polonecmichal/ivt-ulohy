@@ -7,11 +7,11 @@ counterline = 0
 ans = ''
 lenght = 0
 
+# ak dam namiesto 'x' alebo 'w' 'a' spravi tento proces
 if os.path.exists("/home/polonec/Documents/Ivt/answ"):
     answ = open("/home/polonec/Documents/Ivt/answ", "w")
 else:
     answ = open("/home/polonec/Documents/Ivt/answ", "x")
-# ak dam namiesto x alebo w a spravi tento proces
 for line in txt:
     if lenght < len(line):
         lenght = len(line)
