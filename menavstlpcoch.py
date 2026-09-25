@@ -13,4 +13,8 @@ for lines in txt:
 print(meno, priezvisko)
 for i in meno, priezvisko:
     ans += meno[i].strip() + ' ' + priezvisko[i].strip() + ', ' #nejde
+<<<<<<< HEAD
 print(str)
+=======
+print(str)
+>>>>>>> be5fc26 (67])
