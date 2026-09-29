@@ -1,8 +1,8 @@
 txt = input('zadaj text')
 ans = ''
-pismena = {}
+num = {}
+slovo = ''
 for letter in txt:
-    pismena[letter] = pismena.get(letter, 0) + 1
     if letter == ' ':
         pocitadlo = 1
         ans = '0'
@@ -12,5 +12,7 @@ for letter in txt:
         pocitadlo = int(ciselko%3 + 1)
     for i in range(pocitadlo):
         print(ans, end='')
+        num[ans] = num.get(ans,0) + 1
     print(' ', end='')
-print(txt, '\n', pismena, '\n',  max(pismena, key=pismena.get))
+print(txt, '\n')
+print(max(num, key=num.get))

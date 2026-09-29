@@ -16,5 +16,5 @@ print(cislo, count)
 
 for i in cislo:
     percenta = (cislo[i]/count)*100 
-    ans = str(percenta) + '%' + ' '
+    ans = str(round(percenta, 2)) + '%' + ' '
     print(ans)
