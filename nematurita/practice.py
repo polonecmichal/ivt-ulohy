@@ -1,20 +1,19 @@
-#vytazenost dopravneho podniku
-txt = open(r'/home/polonec/Downloads/bus_vytazenost.txt', encoding='1250')
-counter = 0
-ans = ''
-ludia = 0
-ludmax = 0
-#pocet zastavok
+txt = open('/home/polonec/Downloads/skok_do_dialky.txt')
+staty = []
+dict = {}
+max = 0
+win = []
 for line in txt:
-    if len(line) > 3:
-        counter += 1
-        riadok = line.split()
-        zastavka = riadok[2:]
-        ans += ' ' + ' '.join(zastavka) + ','
-        ludia += int(riadok[0])
-        ludia -= int(line[3:5])
-        if ludia > 50:
-            print('na zastavke', riadok[2:])
-        if ludmax < ludia:
-            ludmax = ludia
-print('max je', ludmax, ans)
+    riadok = line.split()
+    stat = riadok[1]
+    staty.append(stat)
+    dict.setdefault(stat, 0)
+    dict[stat] += 1
+    for i in range(2,6):
+        if int(riadok[i]) > int(max):
+            max =  riadok[i]
+            win.clear()
+            win.append(riadok[0]) 
+        elif int(riadok[i]) == int(max):
+            win.append(riadok[0])
+print(win,dict)

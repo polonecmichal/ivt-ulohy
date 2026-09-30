@@ -17,3 +17,25 @@ for line in txt:
 for i in pocty:
     print(i, end=' ')
 print(pocty, max, 'z',ans)
+
+def bs():
+        #skok do dialky
+    txt = open('/home/polonec/Downloads/skok_do_dialky.txt', 'r')
+    dct = {}
+    max = 0
+    maxi = []
+    for line in txt:
+        line = line.split()
+        for n in range(2,6):
+            if int(line[n]) > int(max):
+                max = line[n]
+                maxi.clear()
+                maxi.append(line[0])
+            elif int(line[n]) == int(max):
+                maxi.append(line[0])
+        stat = line[1]
+        dct.setdefault(stat, 0)
+        print(stat)
+        if stat in dct:
+            dct[stat] +=  1
+    print(dct, maxi)

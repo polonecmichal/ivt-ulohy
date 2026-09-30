@@ -1,7 +1,6 @@
 txt = input('zadaj text')
 ans = ''
 num = {}
-slovo = ''
 for letter in txt:
     if letter == ' ':
         pocitadlo = 1
