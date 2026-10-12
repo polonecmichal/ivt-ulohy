@@ -1,6 +1,6 @@
-kluc = 'abc' #input('zadaj kluc')
+text = input('zadaj text')
+kluc = input('zadaj kluc')
 sifra = input('zasifrovat ci desifrovat (z/d)')
-text = 'kqcp'     #input('zadaj text')
 cislokluc = 0
 vysledok = ''
 special = {'ľ','š','č','ť','ž','ý','á','í','é','ô','ä','ú','ň','ď','ĺ','ŕ'}

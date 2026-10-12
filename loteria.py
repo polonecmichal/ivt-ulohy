@@ -1,5 +1,5 @@
 import random
-input = '8 8 8 8 8 8'#input('zadaj cisla')
+input = input('zadaj cisla')
 user = input.split()
 vyhra = []
 y = 0
