@@ -12,7 +12,7 @@
 import json
 typy = {'supereffective': 2, 'not_effective': 0.5, 'no_effect': 0, 'normale': 1}
 mia = {}
-dzejson = json.load(open("/home/polonec/Downloads/effectiveness(1).json", 'r', encoding='utf-8'))
+dzejson = json.load(open("./effectiveness(1).json", 'r', encoding='utf-8'))
 for type1 in dzejson['supereffective']:
     mia[type1] = {}
     for type2 in dzejson['supereffective'][type1]:
@@ -86,9 +86,12 @@ def atack(n1 : int, n2 : int, army : str) -> tuple:
         
     print(f1, f2, s)
 
+#TEST
+#n1 = 2
+#n2 = 2
+#armyfull = "Psychic Dark, Fire, Ghost Ice, Fairy Electric"
+n1 = int(input('zadaj velkost 1' ))
+n2 = int(input('zadaj velkost 2' ))
+armyfull = str(input('zadaj armadu' ))
 
-n1 = 2
-n2 = 2
-army_string = "Psychic Dark, Fire, Ghost Ice, Fairy Electric"
-
-atack(n1, n2, army_string)
+atack(n1, n2, armyfull)
