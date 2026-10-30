@@ -57,7 +57,6 @@ def vs (utoktyp: str, orbanatyp: str) -> float:
 
 def vypocetutoku_ (my_army : list, enemy_army : list):
     bomba = 0.0
-# moja armada
     for my_pokemon in my_army:
         majkspirit = my_pokemon.split()
         for enemy_pokemon in enemy_army:
@@ -67,8 +66,7 @@ def vypocetutoku_ (my_army : list, enemy_army : list):
                 terazbomba = 1.0
                 for enemypyrit in enemyspirit:
                     terazbomba *= vs(majkpyrit, enemypyrit)
-                if terazbomba > casovabomab:
-                        casovabomab = terazbomba
+                casovabomab = max(terazbomba, casovabomab)
             bomba += casovabomab
     return bomba
 def atack(n1 : int, n2 : int, army : str) -> tuple:
@@ -83,15 +81,6 @@ def atack(n1 : int, n2 : int, army : str) -> tuple:
         s = "TEN DRUHY"
     else:
         s = "ROVNOST"
-        
-    print(f1, f2, s)
-
-#TEST
-#n1 = 2
-#n2 = 2
-#armyfull = "Psychic Dark, Fire, Ghost Ice, Fairy Electric"
-n1 = int(input('zadaj velkost 1' ))
-n2 = int(input('zadaj velkost 2' ))
-armyfull = str(input('zadaj armadu' ))
+    return (f1, f2, s)
 
 atack(n1, n2, armyfull)
