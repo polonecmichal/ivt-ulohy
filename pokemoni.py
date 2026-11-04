@@ -1,14 +1,3 @@
-#dva typy: jedno a dvoj zlozkovy
-#nem syeretem tomas es michal
-#Hany ora van?
-#mit ittat?
-
-#egy vs egy (jozo[fire][water])
-#egy vs ketto (jozo[fire][water], jozo[fire][grass])
-#ketto vs egy (jozo[vyberie silnejsi utok]
-#ketto vs ketto (jozo[fire][grass,water](vynasobis), jozo[elektrik][water,grass](vynasobis), vyberies lepsie)
-
-#{'Fire':{'normal': 1, 'fire': 0.5}, 'Water':{'normal': 1, 'water': 0.5}}
 import json
 typy = {'supereffective': 2, 'not_effective': 0.5, 'no_effect': 0, 'normale': 1}
 mia = {}
@@ -33,8 +22,6 @@ for type1 in dzejson['normale']:
     for type2 in dzejson['normale'][type1]:
         mia[type1][type2] = typy['normale']
 
-#print(mia)
-
 def vs (utoktyp: str, orbanatyp: str) -> float:
     utoktyp = utoktyp.capitalize()
     orbanatyp = orbanatyp.capitalize()
@@ -46,14 +33,6 @@ def vs (utoktyp: str, orbanatyp: str) -> float:
     if utoktyp in dzejson.get('no_effect', {}) and orbanatyp in dzejson['no_effect'][utoktyp]:
         return 0.0
     return 1.0
-    
-
-#for strenght in dzejson:
-#    for attacker in dzejson[strenght]:
-#        if not attacker in mia:
-#            mia[attacker] = {}
-#        for defender in dzejson[strenght][attacker]:
-#            mia[attacker][defender] = typy[strenght]
 
 def vypocetutoku_ (my_army : list, enemy_army : list):
     bomba = 0.0
@@ -83,4 +62,7 @@ def atack(n1 : int, n2 : int, army : str) -> tuple:
         s = "ROVNOST"
     return (f1, f2, s)
 
+n1 = input(int('zadaj velkost svojej armady '))
+n2 = input(int('zadaj velkost tvojej armady '))
+armyfull =input(str('zadaj armadu '))
 atack(n1, n2, armyfull)
