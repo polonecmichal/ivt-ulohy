@@ -1,0 +1,8 @@
+CREATE TABLE studenti(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        meno TEXT,
+        priezvisko TEXT,
+        vek INTEGER,
+        noha INTEGER,
+        oci TEXT
+);

@@ -1,16 +1,22 @@
-import random
-import sqlite3
-def create_name(dlzka):
-    samo = 'aeiou'
-    spolu = 'bcdfghjklmnopqrstvwxyz'
+import random,sqlite3
+
+connection = sqlite3.connect('D:/škola/Richard Zilinec/pokusna.db')
+cursor = connection.cursor()
+oci =  ['modra','hneda','zelena']
+
+def create_name(dlzka:int)->str:
     temp = ''
+    samo = 'aeiouy'
+    spolu = 'bcdfghjklmnpqrstvwxz'
     for i in range(dlzka):
-        if random.choice([True, False]):
+        if i % 2 == 0:
             temp += random.choice(spolu)
         else:
-            temp += random.choice(spolu)
+            temp += random.choice(samo)
     return temp.capitalize()
-print(create_name(5))
-conn = sqlite3.connect('pokusna.db')
-pokusna = sqlite3.Cursor(conn)
-print("INSERT INTO studenti (meno, priezvisko, vek, noha, oci) VALUES ('"+create_name(random.randint(3,10))+"','"+create_name(5)+"','"+random.randint(18,25)+'","'+random.randint(36,42)+'","'+random.randint(36,42)+'",?)", random.choice(['modre', 'zelene', 'cirene'])))
+
+for i in range(1000):
+    x = "INSERT INTO studenti (meno,priezvisko,vek,noha,oci) VALUES ('"+create_name(8)+"', '"+create_name(10)+"','"+str(random.randrange(18,21))+"','"+str(random.randrange(36,47))+"','"+random.choice(oci)+"');"
+    cursor.execute(x)
+connection.commit()
+connection.close()
