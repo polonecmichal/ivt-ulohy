@@ -3,8 +3,8 @@ lc = 0
 spokoj = {}
 nespokoj = {}
 for line in txt:
-    if len(line) != 0:
-        lc +=1
+    if len(line) != 0: 
+        lc += 1
     line = line.split()
     hodiny = line[0][:2]
     nazor = str(line[1]).strip()
@@ -12,10 +12,16 @@ for line in txt:
         nespokoj[hodiny] = nespokoj.setdefault(hodiny, 0) + 1
     else:
         spokoj[hodiny] = spokoj.setdefault(hodiny, 0) + 1
+
+spokojmax = (max(spokoj, key=spokoj.get))
+nespokojmax = (max(nespokoj, key=nespokoj.get))
+print(spokojmax, spokoj[spokojmax])
+print(nespokojmax, nespokoj[nespokojmax])
+
 for hodiny in spokoj:
-    spokoj[hodiny] = str(round((int(spokoj.get(hodiny))/lc)*100, 2)) + '%'
+    spokoj[hodiny] = str(round((int(spokoj.get(hodiny))/lc) * 100, 2)) + '%'
 print(spokoj)
 
 for hodiny in nespokoj:
-    nespokoj[hodiny] = str(round((int(nespokoj.get(hodiny))/lc)*100, 2)) + '%'
+    nespokoj[hodiny] = str(round((int(nespokoj.get(hodiny))/lc) *100, 2)) + '%'
 print(nespokoj)
