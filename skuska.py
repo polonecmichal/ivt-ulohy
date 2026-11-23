@@ -1,19 +1,28 @@
 txt = open("/home/polonec/Downloads/spokojnost_1.txt", encoding='cp1250')
 lc = 0
-vyjadr = {}
-den = 1
-reakcie = 0
-predhod = 0
+spokoj = {}
+nespokoj = {}
 for line in txt:
     if len(line) != 0:
         lc += 1
     line = line.split()
     hodiny = line[0][:2]
-    vyjadr[hodiny] = vyjadr.setdefault(hodiny, 0) + 1
-    if int(hodiny) < int(predhod):
-        print(den, reakcie)
-        den += 1
-        reakcie = 0
-    reakcie += 1
-    predhod = hodiny
-print(den, reakcie) 
+    nazor = str(line[1]).strip()
+    if nazor == 'nie':
+        nespokoj[hodiny] = nespokoj.setdefault(hodiny, 0) + 1
+    else:
+        spokoj[hodiny] = spokoj.setdefault(hodiny, 0) + 1    
+
+spokojmax = (max(spokoj, key=spokoj.get))
+nespokojmax = (max(nespokoj, key=nespokoj.get))
+
+
+
+print(spokojmax, spokoj[spokojmax])
+print(nespokojmax, spokoj[nespokojmax])
+
+for hodiny in spokoj:
+    spokoj[hodiny] = str(round((int(spokoj.get(hodiny))/lc)*100, 2)) + '%'
+for hodiny in nespokoj:
+    nespokoj[hodiny] = str(round((int(nespokoj.get(hodiny))/lc)*100, 2)) + '%'
+print(spokoj, nespokoj)

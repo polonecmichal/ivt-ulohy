@@ -10,7 +10,6 @@ for line in txt:
     line = line.split()
     hodiny = line[0][:2]
     vyjadr[hodiny] = vyjadr.setdefault(hodiny, 0) + 1
-
     if int(hodiny) < int(predhod):
         print('v den', den, 'bolo', reakcie, 'reakcii')
         den += 1
